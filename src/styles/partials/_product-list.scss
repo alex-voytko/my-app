@@ -1,0 +1,71 @@
+table {
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: default;
+  user-select: none;
+
+  tr {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    min-height: fit-content;
+  }
+
+  tbody > tr {
+    cursor: pointer;
+  }
+
+  tbody > tr.selected {
+    background-color: $headerColor;
+  }
+
+  th,
+  td {
+    display: flex;
+    justify-content: center;
+
+    p {
+      text-align: center;
+    }
+  }
+
+  tr {
+    border-bottom: 1px solid $borderColor;
+  }
+
+  .table-id {
+    width: 30px;
+  }
+
+  .table-photo {
+    width: 220px;
+  }
+
+  .table-name {
+    width: 160px;
+  }
+  .table-descr {
+    width: 300px;
+  }
+  .table-stock {
+    width: 70px;
+  }
+  .table-category {
+    width: 160px;
+  }
+  .table-rate {
+    width: 60px;
+  }
+  .table-price {
+    width: 60px;
+  }
+
+  .product-img {
+    width: 200px;
+    height: 100px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+  }
+}

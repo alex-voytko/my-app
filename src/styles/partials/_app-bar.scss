@@ -1,0 +1,14 @@
+.app-bar {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: $headerColor;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+
+  h2 {
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 1.2;
+    border-bottom: unset;
+  }
+}
