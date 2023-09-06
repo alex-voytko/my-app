@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { ReactSVG } from "react-svg";
 import { useAppSelector, useAppDispatch } from "../redux/store";
 import { deleteProduct } from "../api";
 import { setModal } from "../redux/slice/modal";
