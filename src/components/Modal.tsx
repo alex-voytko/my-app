@@ -2,6 +2,9 @@ import { createPortal } from "react-dom";
 import { useAppSelector } from "../redux/store";
 import { useAppDispatch } from "../redux/store";
 import Editing from "./Editing";
+import Filters from "./Filters";
+import Sorts from "./Sorts";
+
 import { setModal } from "../redux/slice/modal";
 
 export default function Modal() {
@@ -16,7 +19,11 @@ export default function Modal() {
 
   return createPortal(
     <div className="backdrop" onClick={onBackDropClick}>
-      <div className="modal">{modalOpen === "editing" && <Editing />}</div>
+      <div className="modal">
+        {modalOpen === "editing" && <Editing />}
+        {modalOpen === "filters" && <Filters />}
+        {modalOpen === "sorting" && <Sorts />}
+      </div>
     </div>,
     document.getElementById("modal-root") as HTMLDivElement
   );

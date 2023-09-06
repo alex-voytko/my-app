@@ -15,10 +15,14 @@ import { TypedUseSelectorHook } from "react-redux";
 
 import productSlice from "./slice/products";
 import modalSlice from "./slice/modal";
+import filterSlice from "./slice/filters";
+import sortSlice from "./slice/sorts";
 
 const rootReducer = combineReducers({
   products: productSlice,
   modal: modalSlice,
+  filters: filterSlice,
+  sorts: sortSlice,
 });
 
 const persistConfig = {

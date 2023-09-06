@@ -1,8 +1,15 @@
 // Colors:
-$bodyColor: rgb(255, 254, 242);
-$headerColor: rgb(223, 221, 192);
+$bodyColor: rgb(225, 225, 225);
+$accent: rgb(192, 216, 223);
 $borderColor: rgba(0, 0, 0, 0.15);
-$btnColor: rgb(158, 156, 134);
+$btnColor: rgb(102, 134, 153);
 
 // Transition:
 $transitionDefault: all 0.3s ease-out;
+
+// Shadows:
+%shadows {
+  -webkit-box-shadow: 4px 6px 12px 5px rgba(212, 212, 212, 1);
+  -moz-box-shadow: 4px 6px 12px 5px rgba(212, 212, 212, 1);
+  box-shadow: 4px 6px 12px 5px rgba(212, 212, 212, 1);
+}

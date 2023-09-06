@@ -15,7 +15,7 @@ export default function Loader() {
       }}
     >
       <div style={{ display: "flex", width: "100%", justifyContent: "center" }}>
-        <Grid height={100} width={100} color="rgb(158, 156, 134)" />
+        <Grid height={100} width={100} color="rgb(102, 134, 153)" />
       </div>
     </div>
   );

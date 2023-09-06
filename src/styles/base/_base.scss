@@ -9,6 +9,8 @@ h2 {
   font-size: 30px;
   line-height: 2;
   border-bottom: 1px solid $borderColor;
+  user-select: none;
+  cursor: default;
 }
 
 button {
@@ -35,5 +37,40 @@ button {
   &:disabled:hover {
     opacity: 0.3;
     transform: scale(1);
+  }
+}
+
+label {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+
+  p {
+    padding-top: 10px;
+    user-select: none;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    transition: $transitionDefault;
+
+    &::placeholder {
+      opacity: 0.3;
+    }
+
+    &:focus {
+      outline: 3px solid $accent;
+      transform: scale(1.02);
+    }
+  }
+
+  p {
+    display: inline-block;
+    width: 140px;
   }
 }

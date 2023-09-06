@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useAppSelector } from "./redux/store";
 
@@ -8,10 +9,18 @@ import NotFound from "./views/NotFound";
 import Loader from "./components/Loader";
 import "./styles/main.scss";
 import Modal from "./components/Modal";
+import { fetchProducts } from "./api";
+import { useAppDispatch } from "./redux/store";
 
 function App() {
+  const dispatch = useAppDispatch();
+
   const status = useAppSelector((state) => state.products.status);
   const modalOpen = useAppSelector((state) => state.modal.isOpen);
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
 
   return (
     <div className="app">

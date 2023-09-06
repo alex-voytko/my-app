@@ -1,5 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchProducts, deleteProduct, editProduct } from "../../api";
+import {
+  fetchProducts,
+  deleteProduct,
+  editProduct,
+  createProduct,
+} from "../../api";
 import { IProduct } from "../../models";
 
 const productSlice = createSlice({
@@ -7,6 +12,7 @@ const productSlice = createSlice({
   initialState: {
     items: [] as IProduct[],
     selectedId: null as null | number,
+    searchQuery: "" as string,
     status: null as null | string,
     error: null as null | string,
   },
@@ -20,6 +26,12 @@ const productSlice = createSlice({
     changeProduct: (state, { payload }) => {
       const index = state.items.findIndex((item) => item.id === payload.id);
       state.items[index] = payload;
+    },
+    addProduct: (state, { payload }) => {
+      state.items = [payload, ...state.items];
+    },
+    setSearchQuery: (state, { payload }) => {
+      state.searchQuery = payload;
     },
   },
   extraReducers: {
@@ -59,10 +71,27 @@ const productSlice = createSlice({
       state.status = "rejected";
       state.error = action.payload;
     },
+    [createProduct.pending as any]: (state) => {
+      state.status = "pending";
+      state.error = null;
+    },
+    [createProduct.fulfilled as any]: (state) => {
+      state.status = "resolved";
+      state.error = null;
+    },
+    [createProduct.rejected as any]: (state, action) => {
+      state.status = "rejected";
+      state.error = action.payload;
+    },
   },
 });
 
-export const { setSelected, removeProduct, changeProduct } =
-  productSlice.actions;
+export const {
+  setSelected,
+  removeProduct,
+  changeProduct,
+  addProduct,
+  setSearchQuery,
+} = productSlice.actions;
 
 export default productSlice.reducer;

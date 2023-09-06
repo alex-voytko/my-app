@@ -1,0 +1,93 @@
+form.add-product {
+  max-width: 1000px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+
+  .one-row {
+    display: flex;
+    padding-left: 120px;
+
+    label p {
+      width: 80px;
+    }
+    label input {
+      width: 100px;
+    }
+    label.errored .error-text {
+      left: 80px;
+      text-align: center;
+    }
+  }
+
+  label {
+    margin-bottom: 14px;
+  }
+
+  label.img-link {
+    p {
+      width: 140px;
+      user-select: none;
+    }
+    input[type="text"] {
+      width: 100%;
+    }
+    & > div {
+      display: flex;
+      width: 100%;
+
+      p.checkbox-text {
+        width: 210px;
+        margin-left: 20px;
+      }
+
+      .checkbox-label {
+        width: unset;
+        padding: 0;
+
+        input[type="checkbox"] {
+          width: 40px;
+          height: 40px;
+          border-radius: 10px;
+          padding: 0;
+          outline: 1px solid white;
+          cursor: pointer;
+        }
+
+        div {
+          width: fit-content;
+          height: fit-content;
+          border-radius: 10px;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+
+  label.errored {
+    position: relative;
+
+    input,
+    textarea {
+      outline: 1.5px solid red;
+    }
+    .error-text {
+      width: fit-content;
+      position: absolute;
+      top: -6px;
+      left: 140px;
+      padding: 3px;
+      color: red;
+      font-size: 10px;
+    }
+  }
+
+  .btn-container {
+    margin-top: 40px;
+
+    button {
+      width: 200px;
+      font-weight: 500;
+    }
+  }
+}

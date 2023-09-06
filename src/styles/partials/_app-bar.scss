@@ -1,7 +1,7 @@
 .app-bar {
   padding-top: 20px;
   padding-bottom: 20px;
-  background-color: $headerColor;
+  background-color: $accent;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
 
@@ -10,5 +10,7 @@
     font-weight: 600;
     line-height: 1.2;
     border-bottom: unset;
+    user-select: none;
+    cursor: pointer;
   }
 }

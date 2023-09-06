@@ -1,11 +1,12 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import {
+  addProduct,
   changeProduct,
   removeProduct,
   setSelected,
 } from "../redux/slice/products";
-import { IProduct } from "../models";
+import { IMyProductStates, IProduct } from "../models";
 
 axios.defaults.baseURL = "https://dummyjson.com";
 
@@ -27,10 +28,8 @@ export const deleteProduct = createAsyncThunk(
     try {
       const response = await axios.delete("/products/" + id);
       console.log("DELETE_RESPONSE: ", response);
-      if (response.status < 300) {
-        dispatch(setSelected(null));
-        dispatch(removeProduct(id));
-      }
+      dispatch(setSelected(null));
+      dispatch(removeProduct(id));
     } catch (error: any) {
       return rejectWithValue(error.message);
     }
@@ -45,6 +44,23 @@ export const editProduct = createAsyncThunk(
       console.log("EDIT_RESPONSE: ", response);
       if (response.status < 300) {
         dispatch(changeProduct(newData));
+        dispatch(setSelected(null));
+      }
+    } catch (error: any) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const createProduct = createAsyncThunk(
+  "products/add",
+  async function (newData: IMyProductStates, { rejectWithValue, dispatch }) {
+    try {
+      const response = await axios.post("/products/add");
+      console.log("ADD_RESPONSE: ", response);
+      if (response.status < 300) {
+        dispatch(addProduct(newData));
+        dispatch(setSelected(null));
       }
     } catch (error: any) {
       return rejectWithValue(error.message);
